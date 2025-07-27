@@ -1,7 +1,7 @@
 # ------------------------------------
-# Title:    Projectile Motion Calculations Remake
-# Author:   Clint MacDonald
-# Date:     , 2025
+# Title:    Projectile Motion Calculations
+# Author:   Matt Salvadori
+# Date:     July 10, 2025
 # Purpose:  To calculate the time it takes for a projectile
 #           to hit the ground mapping it's location each time interval.
 # ------------------------------------
@@ -21,7 +21,7 @@ HIT_DISTANCE = 5.0
 SELF_DESTRUCT_DISTANCE = 1.00
 USER_GREETING = '''
 --------------------------------------------------
-HELLO! WELCOME TO MY PEW PEW TANK GAME!
+HELLO MOTHERFUCKER WELCOME TO MY PEW PEW TANK GAME
 --------------------------------------------------'''
 MENU = '''
 --------------------------------------------------

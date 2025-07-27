@@ -1,5 +1,5 @@
 # ----------------------------
-# Title:        COSC1100- Week 9 Guess the Number
+# Title:        COSC1100 - Week 9 Guess the Number
 # Name:         Matt Salvadori
 # Date:         July 10, 2025
 # Purpose:      Showing how to integrate functions into programs
@@ -22,7 +22,8 @@ def getIntFromUser(prompt):
         try:
             num = int(input(prompt))
 
-            if num < 8 or num > 24 :
+            if not (num == 0 or 8 <= num <= 24):
+
                 print('Please enter a valid whole number between 8" - 24"')
                 raise ValueError
             is_valid = True
@@ -50,16 +51,24 @@ def calcSliceArea(diameter, slices):
 def printMenu(diameter, sliceQuant):
     '''prints the pizzas diameter, and a line for every cut scenario with corresponding slice areas'''
     print('\n------------------------------------------------------------------------\n')
-    print('\nPizza Diameter: %.1f"\n' % diameter)
+    print('Pizza Diameter: %.1f"' % diameter)
     for slices in sliceQuant:
         sliceArea = calcSliceArea(diameter, slices)
-        print("Cut in %i slices results in an area of %.2fper slice\n" % (slices, sliceArea))
+        print('Cut in %i slices results in an area of %.2f" per slice' % (slices, sliceArea))
     print('\n------------------------------------------------------------------------')
 
 
 # main
 print(WELCOME_MESSAGE)
-diameter_of_pizza = getIntFromUser("\nPlease enter the diameter of pizza between 8 - 24 (0 to end program): ")
-slice_quantity = calcSlices(diameter_of_pizza)
-printMenu(diameter_of_pizza, slice_quantity)
+print_again = True
+while print_again:
+    diameter_of_pizza = getIntFromUser("\nPlease enter the diameter of pizza between 8 - 24 (0 to end program): ")
+    if diameter_of_pizza == 0:
+        print_again = False
+        continue
+    slice_quantity = calcSlices(diameter_of_pizza)
+    printMenu(diameter_of_pizza, slice_quantity)
+
+    print_again = input("\nDo you want to calculate another? (y or n): ").lower().strip() == "y"
+print("Good-Bye")
 
